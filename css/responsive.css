@@ -1,0 +1,8 @@
+@media(max-width:900px){.nv,.hd>.w>.btn{display:none}.burger{display:block}.hero .w,.fg,.two{grid-template-columns:1fr}.hv{max-width:300px;margin:0}.hero .w{gap:28px}
+ .sig,.why{grid-template-columns:1fr 1fr}.soon,.rg{grid-template-columns:1fr 1fr}.mc,.pol{grid-template-columns:1fr}.fg,.two{gap:28px}}
+@media(max-width:600px){body{font-size:15.5px}.w{padding:0 18px}.sec{padding:40px 0}.sig,.why,.soon,.rg,.og,.vals{grid-template-columns:1fr}.sig{gap:22px}.pc{display:grid;grid-template-columns:96px 1fr;gap:16px;align-items:center}.pc .im{margin:0}.pc p{margin:2px 0 6px}
+ .ms{grid-template-columns:72px 1fr;gap:16px}.hero{padding:28px 0}.hv{max-width:200px}.btns .btn{flex:1 1 130px}.nlr{flex-direction:column}.ft .cols{grid-template-columns:1fr 1fr}.ft .cols>div:first-child{grid-column:1/-1}.wa{right:12px;bottom:12px;padding:0;width:50px;height:50px;justify-content:center}.wa .t{display:none}.wa .ic{margin:0;width:24px;height:24px}
+ input,textarea{font-size:16px}.qr{width:110px;height:110px}}
+
+@media(max-width:980px){.hero .w{grid-template-columns:1fr}.pc.a,.pc.b,.pc.c,.pc.d{width:100%;align-self:stretch}.sig{display:flex;flex-direction:column;gap:28px}}
+@media(max-width:620px){.hero{padding:18px 0 32px}.sec{padding:40px 0}.sec.sm .soon{grid-template-columns:repeat(3,1fr)}.sec.sm .sc .im{max-width:84px}.sec.sm .sc h3{font-size:14px}.pc .im img{height:76%}}

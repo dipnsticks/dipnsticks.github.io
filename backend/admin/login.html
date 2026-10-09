@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Admin Login | DIP N’ STICKS</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--r:#c8171c;--y:#f1ab0a;--c:#f5f0e6;--k:#111}*{box-sizing:border-box;margin:0}body{min-height:100vh;display:grid;place-items:center;background:var(--r);font:16px/1.5 Barlow,Arial,sans-serif;color:var(--k);padding:16px}
+.card{background:var(--c);border:3px solid var(--k);border-radius:28px;padding:34px 28px;max-width:400px;width:100%;text-align:center}
+h1{font:700 38px Oswald,Impact,sans-serif;text-transform:uppercase;color:var(--r);line-height:1}h1 b{color:var(--y);-webkit-text-stroke:1px var(--k)}
+.s{font:500 15px Oswald;letter-spacing:.16em;text-transform:uppercase;margin:6px 0 22px}.pw{position:relative}
+input{font:inherit;width:100%;padding:13px 70px 13px 16px;border:2.5px solid var(--k);border-radius:14px;background:#fff}input:focus{outline:3px solid var(--y)}
+.pw button{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:0;font:600 13px Oswald;text-transform:uppercase;color:var(--r);cursor:pointer;padding:8px}
+.b{width:100%;margin-top:14px;font:700 18px Oswald;text-transform:uppercase;letter-spacing:.06em;background:var(--r);color:#fff;border:2.5px solid var(--r);border-radius:40px;padding:13px;cursor:pointer}.b:disabled{opacity:.6}
+.err{color:var(--r);font-weight:600;min-height:24px;margin-top:10px}a{color:var(--r);font:500 15px Oswald;text-transform:uppercase;letter-spacing:.06em}
+</style></head><body><form class="card" id="f"><h1>DIP N’ <b>STICKS</b></h1><p class="s">Admin login</p>
+<div class="pw"><input id="pw" type="password" placeholder="Password" autocomplete="current-password" autofocus required><button type="button" id="t">Show</button></div>
+<button class="b" id="go">Log in</button><p class="err" id="e" role="alert"></p><a href="/">← Back to website</a></form>
+<script>
+var pw=document.getElementById('pw'),e=document.getElementById('e'),go=document.getElementById('go');
+document.getElementById('t').onclick=function(){var s=pw.type=='password';pw.type=s?'text':'password';this.textContent=s?'Hide':'Show'};
+document.getElementById('f').onsubmit=function(ev){ev.preventDefault();go.disabled=true;e.textContent='';
+fetch('/api/admin/login',{method:'POST',headers:{'Content-Type':'application/json','x-requested-with':'dns'},body:JSON.stringify({password:pw.value})})
+.then(function(r){return r.json().catch(function(){return{}}).then(function(j){if(r.ok)location.replace('/admin');else{go.disabled=false;e.textContent=j.error||'Login failed';pw.select()}})})
+.catch(function(){go.disabled=false;e.textContent='Cannot reach the server.'})};
+</script></body></html>
